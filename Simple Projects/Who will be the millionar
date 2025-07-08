@@ -1,0 +1,44 @@
+def play(cand,sm = 0):
+    dct = {};
+    for player in cand:
+        print(f"{player} you are in \n")
+        print(f"{player} , do you want to play? If yes ender 1 else 0\n")
+        n = input("Enter ")
+        if(n == "0"):
+            continue;
+        sm = 0;
+        k = 0;
+        for qus in cand[player][0]:
+            print(f"Question no {k+1}\n")
+            print(qus);
+            s = input("Enter answer ");
+            if(s.lower() == cand[player][1][k]):
+                print("Correct Answer\n");
+                sm+=cand[player][2][k]
+            else:
+                print("Answer is not correct\n")
+            k+=1;
+        dct[player] = sm;
+    return dct;
+        
+
+candidate = {"person 1": [["What is my name?\na. Sajid\nb. Tasin\nc. Ashik\n","What is my age?\na. 12\nb. 21\nc. 25\n"],
+                         ["a","b"],
+                          [10000,20000]],
+            "person 2": [["What is my Brothers name?\na. Sajid\nb. Tasin\nc. Ashik\n","What is my Brothers age?\na. 12\nb. 21\nc. 25\n"],
+                         ["b","a"],
+                          [20000,30000]]};
+
+
+dct = play(candidate)
+if dct:
+    b = -1
+    s = ""
+    for key,value in dct.items():
+        if(value>b):
+            b = value
+            s = key
+    print(f"The winner is {s}, who wins {b}")
+else:
+    print("No one wins the game")
+     
