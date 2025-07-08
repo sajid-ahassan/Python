@@ -1,0 +1,17 @@
+a = int(input("Enter number of operation "))
+while (a):
+    n = int(input("Enter first Number "))
+    m = int(input("Enter second Number "))
+    str = input("which operation you want to perform (+ , _ , * , /)")
+
+    if(str == '+'):
+        print(f"Result {n+m}\n")
+    elif(str == "-"):
+        print(f"Result {n-m}\n")
+    elif(str == "*"):
+        print(f"Result {n*m}\n")
+    elif(str == "/"):
+        print(f"Result {n/m}\n")
+    else:
+        print("Enter valid operation")
+    a-=1;
